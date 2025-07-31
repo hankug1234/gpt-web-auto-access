@@ -9,6 +9,7 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common import TimeoutException
+from restart_chrom import launch_chrom_debug_linux
 
 # === 설정 ===
 from config import DEBUG_PORT, CHROMEDRIVER_PATH
@@ -180,10 +181,7 @@ def send_message(driver, wait, text: str, image_path: str | None = None) -> dict
     return reply.text
 
 if __name__ == "__main__":
-    
-    from restart_chrom import launch_chrom_debug_linux
-    
-    #launch_chrom_debug_linux()
+    launch_chrom_debug_linux()
     
     print("gpt 로그인이 완료 된후 엔터 키를 눌러 주세요 ")
     input()
