@@ -2,30 +2,7 @@ GPT Web 자동화 예제 스크립트
 
 기존 Chrome 세션(로그인된 상태)에 연결하여 CAPTCHA/인증 우회 및 이미지 업로드/다운로드 지원
 
-사용 전 준비:
-  1. **Linux/macOS**에서 Chrome을 다음 플래그로 수동 실행:
-     ```bash
-     google-chrome \
-       --remote-debugging-port=9222 \
-       --user-data-dir="/home/youruser/.config/google-chrome" \
-       --profile-directory=Default
-     ```
-     또는 macOS:
-     ```bash
-     /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
-       --remote-debugging-port=9222 \
-       --user-data-dir="~/Library/Application Support/Google/Chrome" \
-       --profile-directory=Default
-     ```
+스크립트 실행 시 동일한 인스턴스(포트 9222)에 연결하여 세션 재사용, `invoke`로 텍스트/이미지 전송 및 응답(텍스트, 이미지 URL 리스트) 반환
 
-  2. **Windows**에서 Chrome을 다음과 같이 실행:
-     ```powershell
-     & "C:\Program Files\Google\Chrome\Application\chrome.exe" \
-       --remote-debugging-port=9222 \
-       --user-data-dir="C:\Users\<YourUser>\AppData\Local\Google\Chrome\User Data" \
-       --profile-directory=Default
-     ```
-
-  3. 열린 Chrome에서 ChatGPT에 로그인해 둡니다.
-
-스크립트 실행 시 동일한 인스턴스(포트 9222)에 연결하여 세션 재사용, `send_message`로 텍스트/이미지 전송 및 응답(텍스트, 이미지 URL 리스트) 반환
+debug 모드로 크롬에 접속 하는 것이기 때문에 보안 이슈에 주의 해야함 
+코드 재사용시 자신의 임시 크롬 프로파일 디렉토리가 노출 되는지 확인이 필요함 
